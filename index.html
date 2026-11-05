@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Everyday FSRS — Remember Life Stuff</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <span class="logo">◈</span>
+      <div>
+        <h1>Everyday FSRS</h1>
+        <p class="tag">Spaced repetition for passwords-you-keep-forgetting, coworker names, recipes, and vocab — powered by the FSRS memory model.</p>
+      </div>
+    </div>
+    <div class="badges"><span class="badge">FSRS-4.5 formulas</span><span class="badge">local only</span></div>
+  </header>
+  <main class="layout">
+    <section class="card">
+      <h2>Due now</h2>
+      <div id="review" class="review">
+        <p class="empty">Nothing due. Add a card or load the demo deck.</p>
+      </div>
+      <div id="grades" class="grades" hidden>
+        <button data-g="1" type="button" class="g again">Again</button>
+        <button data-g="2" type="button" class="g hard">Hard</button>
+        <button data-g="3" type="button" class="g good">Good</button>
+        <button data-g="4" type="button" class="g easy">Easy</button>
+      </div>
+    </section>
+    <section class="card">
+      <h2>Add memory</h2>
+      <form id="form" class="form">
+        <label>Front <textarea id="front" required rows="2" placeholder="What is Priya's kid's name?"></textarea></label>
+        <label>Back <textarea id="back" required rows="2" placeholder="Aarav"></textarea></label>
+        <button class="btn primary" type="submit">Add card</button>
+      </form>
+      <div class="row">
+        <button class="btn ghost" type="button" id="demo">Load demo deck</button>
+        <button class="btn danger" type="button" id="clear">Reset deck</button>
+      </div>
+      <h3>Deck (<span id="count">0</span>)</h3>
+      <ul id="deck" class="deck"></ul>
+    </section>
+    <section class="card paper">
+      <h2>Research basis</h2>
+      <p>Scheduling uses the open <strong>FSRS</strong> (Free Spaced Repetition Scheduler) Difficulty–Stability–Retrievability model descended from:</p>
+      <blockquote>
+        Ye, J., Su, J., &amp; Cao, Y. (2022). <em>A Stochastic Shortest Path Algorithm for Optimizing Spaced Repetition Scheduling</em>. KDD 2022.
+        <a href="https://doi.org/10.1145/3534678.3539081" target="_blank" rel="noopener">doi:10.1145/3534678.3539081</a>
+        · paper site: <a href="https://www.maimemo.com/paper/" target="_blank" rel="noopener">maimemo.com/paper</a>
+      </blockquote>
+      <p class="hint">This demo implements FSRS-4.5 update formulas (default weights) for interval scheduling in the browser. It does <strong>not</strong> reproduce the paper’s SSP-MMC optimizer experiments or claim MaiMemo’s 12.6% lift — those need large review logs. Honest scope: faithful DSR scheduling math + everyday UX.</p>
+    </section>
+  </main>
+  <footer><p>Portfolio demo · MIT · Built with AI assistance</p></footer>
+  <script src="fsrs.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
